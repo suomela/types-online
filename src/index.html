@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Productivity</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<form>
+    <fieldset>
+        <div class="row">
+            <div class="column">
+                <label for="corpus">Corpus</label><select id="corpus"></select>
+                <label for="dataset">Dataset</label><select id="dataset"></select>
+                <label for="collection">Collection</label><select id="collection"></select>
+            </div>
+            <div class="column">
+                <label for="yaxis">Y axis</label><select id="yaxis"></select>
+                <label for="xaxis">X axis</label><select id="xaxis"></select>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<svg id="plot"></svg>
+<p id="count"></p>
+</div>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="productivity.js"></script>
+<script src="types-data.js"></script>
+</body>
+</html>
