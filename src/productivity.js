@@ -24,15 +24,25 @@ var makekey = function(l) {
 
 var menu = function(e, data) {
     var s = d3.select(e);
-    s.selectAll("option")
-        .data(data)
-            .text(function(d) { return d; })
-            .attr("value", function(d) { return d; })
-        .enter().append("option")
-            .text(function(d) { return d; })
-            .attr("value", function(d) { return d; })
-        .exit().remove();
-    var v = s.node().value;
+    var node = s.node();
+    var options = node.options;
+    var same = options.length === data.length;
+    for (var i = 0; same && i < data.length; ++i) {
+        same = options[i].value === data[i] && options[i].text === data[i];
+    }
+    if (!same) {
+        var old = node.value;
+        s.selectAll("option").remove();
+        s.selectAll("option")
+            .data(data)
+            .enter().append("option")
+                .text(function(d) { return d; })
+                .attr("value", function(d) { return d; });
+        if (data.indexOf(old) !== -1) {
+            node.value = old;
+        }
+    }
+    var v = node.value;
     if (v === "") {
         v = null;
     }
