@@ -1,6 +1,6 @@
 "use strict";
 
-importScripts("https://d3js.org/d3.v4.min.js");
+importScripts("vendor/d3.v4.min.js");
 
 var LWORDCOUNT = "running words";
 var LTYPECOUNT = "types";
